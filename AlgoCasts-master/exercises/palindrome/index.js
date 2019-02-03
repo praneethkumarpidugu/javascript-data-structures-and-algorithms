@@ -7,17 +7,35 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {
-    let palindrome_result = "";
-    for(let char of str)
-    {
-        palindrome_result = char + palindrome_result;
-    }
-    if(palindrome_result == str)
-    {
-        return true;
-    }
-    return false;
-}
+// function palindrome(str) {
+//     let palindrome_result = "";
+//     for(let char of str)
+//     {
+//         palindrome_result = char + palindrome_result;
+//     }
+//     if(palindrome_result == str)
+//     {
+//         return true;
+//     }
+//     return false;
+// }
 
+
+// Udemy Solution # 1
+
+// function palindrome(str)
+// {
+//     let reversedString = str.split('').reverse().join('');
+
+//     return reversedString == str;
+// }
+
+// Udemy Solution # 2 using Array.prototype.every()
+function palindrome(str)
+{
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1];
+    });
+}
+palindrome('ravali');
 module.exports = palindrome;
