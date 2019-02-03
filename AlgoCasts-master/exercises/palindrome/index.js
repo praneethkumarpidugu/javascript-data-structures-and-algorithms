@@ -37,5 +37,5 @@ function palindrome(str)
         return char === str[str.length - i - 1];
     });
 }
-palindrome('ravali');
+
 module.exports = palindrome;
