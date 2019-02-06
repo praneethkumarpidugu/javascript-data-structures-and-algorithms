@@ -36,33 +36,41 @@
 //     return false;
 // }
 
-function anagrams(stringA, stringB) {
-    const aChar = buildCharMap(stringA)
-    const bChar = buildCharMap(stringB)
+// function anagrams(stringA, stringB) {
+//     const aChar = buildCharMap(stringA)
+//     const bChar = buildCharMap(stringB)
 
-    if(Object.keys(aChar).length !== Object.keys(bChar).length)
-    {
-        return false;
-    }
-    for(let char in aChar)
-    {
-        if(aChar[char] !== bChar[char])
-        {
-            return false
-        }
-    }
-    return true;
+//     if(Object.keys(aChar).length !== Object.keys(bChar).length)
+//     {
+//         return false;
+//     }
+//     for(let char in aChar)
+//     {
+//         if(aChar[char] !== bChar[char])
+//         {
+//             return false
+//         }
+//     }
+//     return true;
     
+// }
+
+// function buildCharMap(str)
+// {
+//     const charMap = {};
+//     for(let char of str.replace(/[^\w]/g,"").toLowerCase())
+//     {
+//         charMap[char] = charMap[char] + 1 || 1;
+//     }
+//     return charMap;
+// }
+function anagrams(stringA, stringB) {
+    return sortHelper(stringA) === sortHelper(stringB)
 }
 
-function buildCharMap(str)
+function sortHelper(str)
 {
-    const charMap = {};
-    for(let char of str.replace(/[^\w]/g,"").toLowerCase())
-    {
-        charMap[char] = charMap[char] + 1 || 1;
-    }
-    return charMap;
+    return str.replace(/[^\w]/g,"").split('').sort().join('');
 }
 anagrams("apple", "elppa")
 module.exports = anagrams;
